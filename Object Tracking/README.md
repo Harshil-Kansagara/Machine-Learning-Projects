@@ -15,10 +15,10 @@ Here is a high-level overview of how object tracking works:
 3. **Motion Estimation:** The next step is to estimate the motion of the object between consecutive frames. This can be done by comparing the extracted features or by calculating optical flow, which measures the displacement of pixels between frames. Motion estimation helps predict the position of the object in the next frame.
 
 4. **Tracking Algorithm:** Various tracking algorithms can be employed to track the object over time. Some commonly used algorithms include:
-    a. *Kalman Filter:* It uses a mathematical model to estimate the object's state and predict its future location based on motion dynamics.
-    b. *Particle Filter:* Also known as the Monte Carlo filter, it uses a set of particles to represent the possible object locations and weights them based on their likelihood.
-    c. *MeanShift:* It iteratively adjusts the position of the object based on the distribution of feature points, maximizing the similarity between the target and its surrounding area.
-    d. *Correlation Filter:* It uses a learned correlation filter to track the object by maximizing the response in the filter's output.
+    1. *Kalman Filter:* It uses a mathematical model to estimate the object's state and predict its future location based on motion dynamics.
+    2. *Particle Filter:* Also known as the Monte Carlo filter, it uses a set of particles to represent the possible object locations and weights them based on their likelihood.
+    3. *MeanShift:* It iteratively adjusts the position of the object based on the distribution of feature points, maximizing the similarity between the target and its surrounding area.
+    4. *Correlation Filter:* It uses a learned correlation filter to track the object by maximizing the response in the filter's output.
 
 5. **Update and Adaptation:** As new frames are processed, the tracking algorithm continually updates the object's location based on the detected features and motion estimation. The tracking algorithm may also adapt to changes in appearance, scale, or occlusion of the object.
 
