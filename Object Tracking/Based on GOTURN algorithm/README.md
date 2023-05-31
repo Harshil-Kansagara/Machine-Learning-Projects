@@ -4,6 +4,7 @@
 * GOTURN changed the way we apply Deep Learning to the problem of tracking by learning the motion of an object in an offline manner. The GOTURN model is trained on thousands of video sequences and does not need to perform any learning at runtime.
 
 ### How does GOTURN work? ###
+![goturn-inputs-ouputs](https://github.com/Harshil-Kansagara/Machine-Learning-Projects/assets/35835271/39b2178d-f4cc-4dfa-9963-6ed94802be4b)
 
 As shown in Fig, GOTURN is trained using a pair of cropped frames from the thousands of videos
 
@@ -14,8 +15,9 @@ The location of the object in the second frame (also referred to as the current 
 A Convolutional Neural Network (CNN) is trained to predict the location of the bounding box in the second frame.
 
 ### GOTURN Architecture ###
+![GOTURN-architecture](https://github.com/Harshil-Kansagara/Machine-Learning-Projects/assets/35835271/032ead72-6a90-4f41-8618-ee7a0ae542c0)
 
-Figure 2 shows the architecture of GOTURN.
+Figure shows the architecture of GOTURN.
 
 As mentioned before, it takes two cropped frame as input. Notice, the previous frame, shown at the bottom, is centered and our goal is the find the bounding box for the currrent frame shown on the top.
 
@@ -23,3 +25,4 @@ Both frames pass through a bank of convolutional layers. The layers are simply t
 
 ### Download GOTURN model files ###
 You can download the GOTURN caffemodel and prototxt files located at [this link](https://github.com/spmallick/goturn-files). The model file is split into 4 files which will need to be merged before unzipping
+
