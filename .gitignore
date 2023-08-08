@@ -1,1 +1,5 @@
 **/__pycache__/
+**/cell_images/**
+**/dataset/**
+**/datasets/**
+Object Localization with TensorFlow/emojis/**
