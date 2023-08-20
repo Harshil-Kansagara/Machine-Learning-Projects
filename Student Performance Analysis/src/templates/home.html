@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <title>Student Exam Performance Prediction</title>
+        <style>
+            .form-group {
+                display: flex;
+                align-items: center;
+            }
+
+            .form-label {
+                width: 150px; /* Adjust as needed */
+                margin-right: 10px;
+            }
+
+            .form-control {
+                flex: 1;
+            }
+
+            .submit-button {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+<body>
+    <div class="login">
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1>
+        <div class="form-group">{{form.csrf_token}}</div>
+        <div class="form-group">
+            <label class="form-label">Subject</label>
+            {{ form.subject(class='form-control') }}
+            {% if form.subject.errors %}
+                <div class="error">{{ form.subject.errors[0] }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">School</label>
+            {{ form.school(class='form-control') }}
+            {% if form.school.errors %}
+                <div class="error">{{ form.school.errors[0] }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Sex</label>
+            {{ form.sex(class='form-control') }}
+            {% if form.sex.errors %}
+                <div class="error">{{ form.sex.errors[0] }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Age</label>
+            {{ form.age(class="form-control") }}
+            {% if form.age.errors %}
+                <div class="error">{{ form.age.errors[0] }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Address</label>
+            {{ form.address(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Family Size</label>
+            {{ form.famsize(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Parent's cohabitation status</label>
+            {{ form.pstatus(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Mothers education</label>
+            {{ form.medu(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Fathers education</label>
+            {{ form.fedu(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Mothers job</label>
+            {{ form.mjob(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Fathers job</label>
+            {{ form.fjob(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Reason to choose this school</label>
+            {{ form.reason(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Guardian</label>
+            {{ form.guardian(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Travel time from home to school</label>
+            {{ form.traveltime(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Weekly study time</label>
+            {{ form.studytime(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Number of past class failures</label>
+            {{ form.failures(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Extra educational support</label>
+            {{ form.schoolsup(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Family educational support</label>
+            {{ form.famsup(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Extra paid classes</label>
+            {{ form.paid(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Extra curricular activites</label>
+            {{ form.activities(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Nursery</label>
+            {{ form.nursery(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Higher</label>
+            {{ form.higher(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Internet</label>
+            {{ form.internet(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Romantic</label>
+            {{ form.romantic(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Quality of family relationship</label>
+            {{ form.famrel(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Free time after school</label>
+            {{ form.freetime(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Number of time going out with friends</label>
+            {{ form.goout(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Workday alcohol consumption</label>
+            {{ form.dalc(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Weekend alcohol consumption</label>
+            {{ form.walc(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Current Health status</label>
+            {{ form.health(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Number of time absence in class</label>
+            {{ form.absences(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">First period grade</label>
+            {{ form.g1(class="form-control") }}
+        </div>
+        <div class="form-group">
+            <label class="form-label">Second period grade</label>
+            {{ form.g2(class="form-control") }}
+        </div>
+        <div class="submit-button">
+            {{ form.submit(class="btn btn-primary", value="Predict your Performance") }}
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>

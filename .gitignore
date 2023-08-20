@@ -2,4 +2,6 @@
 **/cell_images/**
 **/dataset/**
 **/datasets/**
+**/logs/**
+**/catboost_info/**
 Object Localization with TensorFlow/emojis/**
